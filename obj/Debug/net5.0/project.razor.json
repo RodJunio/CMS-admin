@@ -17641,6 +17641,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Projeto de curso\\cms-projeto\\cms-admin\\Views\\Administradores\\Create.cshtml",
+      "TargetPath": "Views\\Administradores\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Projeto de curso\\cms-projeto\\cms-admin\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -17653,6 +17658,26 @@
     {
       "FilePath": "d:\\Projeto de curso\\cms-projeto\\cms-admin\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Projeto de curso\\cms-projeto\\cms-admin\\Views\\Administradores\\Edit.cshtml",
+      "TargetPath": "Views\\Administradores\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Projeto de curso\\cms-projeto\\cms-admin\\Views\\Administradores\\Details.cshtml",
+      "TargetPath": "Views\\Administradores\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Projeto de curso\\cms-projeto\\cms-admin\\Views\\Administradores\\Index.cshtml",
+      "TargetPath": "Views\\Administradores\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Projeto de curso\\cms-projeto\\cms-admin\\Views\\Administradores\\Delete.cshtml",
+      "TargetPath": "Views\\Administradores\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -1,13 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using cms_admin.Models.Infraestrutura.DataBase;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace cms_admin
 {
@@ -24,6 +28,9 @@ namespace cms_admin
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            JToken jappSettings = JToken.Parse(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "appsettings.json")));
+            services.AddDbContext<ContextCms>(options => options.UseSqlServer(jappSettings["ConexaoSql"].ToString()));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
