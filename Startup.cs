@@ -27,6 +27,8 @@ namespace cms_admin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();
+            
             services.AddControllersWithViews();
             JToken jappSettings = JToken.Parse(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "appsettings.json")));
             services.AddDbContext<ContextCms>(options => options.UseSqlServer(jappSettings["ConexaoSql"].ToString()));
@@ -50,6 +52,8 @@ namespace cms_admin
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 

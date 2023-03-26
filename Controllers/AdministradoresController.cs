@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using cms_admin.Models.Dominio.Entidades;
 using cms_admin.Models.Infraestrutura.DataBase;
+using cms_admin.Models.Infraestrutura.Autenticacao;
 
 namespace cms_admin.Controllers
 {
+    [Logado]
     public class AdministradoresController : Controller
     {
         private readonly ContextCms _context;
