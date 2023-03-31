@@ -7,31 +7,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using cms_admin.Models;
 using Microsoft.AspNetCore.Http;
+using cms_admin.Models.Infraestrutura.Autenticacao;
+using cms_admin.Models.Infraestrutura.DataBase;
 
 namespace cms_admin.Controllers
 {
-    public class HomeController : Controller
+    public class LoginController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<LoginController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public LoginController(ILogger<LoginController> logger)
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
-            ViewBag.Message = this.HttpContext.Session.GetString("Administrador");
-            return View();
-        }
-        
-        public IActionResult Privacy()
-        {
-            this.HttpContext.Response.Cookies.Append("Administrador", "Seja bem-vindo!", new CookieOptions()
-            {
-                Expires = DateTimeOffset.UtcNow.AddSeconds(3),
-                HttpOnly = true
-            });
             return View();
         }
 
@@ -39,6 +29,35 @@ namespace cms_admin.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [Route("/login/logar")]
+        [HttpPost]
+        public IActionResult Logar(string email, string senha)
+        {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
+            {
+                ViewBag.erro = "Digite o email e a senha";
+            }
+            else
+            {
+                var adms = new ContextCms().Administradores.Where(a => a.Email == email && a.Senha == senha).ToList();
+                if (adms.Count > 0)
+                {
+                    this.HttpContext.Response.Cookies.Append("estoque_cms", adms.First().Id.ToString() , new CookieOptions()
+                    {
+                        Expires = DateTimeOffset.UtcNow.AddDays(1),
+                        HttpOnly = true
+                    });
+
+                    Response.Redirect("/");
+                }
+                else
+                {
+                    ViewBag.erro = "Usuário ou senha inválido";
+                }
+            }
+            return View("Index");
         }
     }
 }

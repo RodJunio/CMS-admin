@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "_LayoutLogin";
+}
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <br>
+        <div class="fadeIn first">
+            <img src="~/img/LogotipoLojaOnline.jpg" style="border-radius: 10px;" id="icon" alt="User Icon" />
+        </div>
+        <br>
+        <br>
+        <form action="/login/logar" method="post">
+            <input type="email" id="email" class="fadeIn second" name="email" placeholder="Digite seu e-mail">
+            <input type="password" id="senha" class="fadeIn third" name="senha" placeholder="Digite sua senha">
+            @if(!string.IsNullOrEmpty(ViewBag.erro)){
+            <div class="alert alert-danger" style="margin: 10px" role="alert">
+                @ViewBag.erro
+            </div>
+            }
+            <input type="submit" class="fadeIn fourth" value="Entrar">
+        </form>
+
+    </div>
+</div>
+

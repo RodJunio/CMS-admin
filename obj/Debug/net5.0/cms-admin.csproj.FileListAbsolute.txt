@@ -153,3 +153,5 @@ D:\Projeto de curso\cms-projeto\cms-admin\obj\Debug\net5.0\refint\cms-admin.dll
 D:\Projeto de curso\cms-projeto\cms-admin\obj\Debug\net5.0\cms-admin.pdb
 D:\Projeto de curso\cms-projeto\cms-admin\obj\Debug\net5.0\cms-admin.genruntimeconfig.cache
 D:\Projeto de curso\cms-projeto\cms-admin\obj\Debug\net5.0\ref\cms-admin.dll
+D:\Projeto de curso\cms-projeto\cms-admin\obj\Debug\net5.0\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs
+D:\Projeto de curso\cms-projeto\cms-admin\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs

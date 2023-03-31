@@ -12,9 +12,9 @@ namespace cms_admin.Models.Infraestrutura.Autenticacao
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if(string.IsNullOrEmpty(filterContext.HttpContext.Request.Cookies["Administrador"])){
+            if(string.IsNullOrEmpty(filterContext.HttpContext.Request.Cookies["estoque_cms"])){
 
-                filterContext.HttpContext.Response.Redirect("/");
+                filterContext.HttpContext.Response.Redirect("/login");
                 
                 
                 return;

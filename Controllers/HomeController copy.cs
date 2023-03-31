@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using cms_admin.Models;
 using Microsoft.AspNetCore.Http;
+using cms_admin.Models.Infraestrutura.Autenticacao;
 
 namespace cms_admin.Controllers
 {
@@ -19,19 +20,14 @@ namespace cms_admin.Controllers
             _logger = logger;
         }
 
+        [Logado]
         public IActionResult Index()
         {
-            ViewBag.Message = this.HttpContext.Session.GetString("Administrador");
             return View();
         }
         
         public IActionResult Privacy()
         {
-            this.HttpContext.Response.Cookies.Append("Administrador", "Seja bem-vindo!", new CookieOptions()
-            {
-                Expires = DateTimeOffset.UtcNow.AddSeconds(3),
-                HttpOnly = true
-            });
             return View();
         }
 
@@ -40,5 +36,12 @@ namespace cms_admin.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult Sair()
+        {
+            this.HttpContext.Response.Cookies.Delete("estoque_cms");
+            return Redirect("/login");
+        }
+
     }
 }
